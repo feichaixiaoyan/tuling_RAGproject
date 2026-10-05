@@ -15,9 +15,9 @@ class OfficeParser(DocumentParser):
         "application/vnd.ms-powerpoint",
         "application/vnd.openxmlformats-officedocument.presentationml.presentation",
     }
-    def _init__(self):
+    def __init__(self):
         self.markdown_parser = MarkItDown()  # 初始化 MarkdownParser 实例
-    def parser(self, data: bytes) -> str:
+    def parse(self, data: bytes) -> str:
         """
         解析 Office 文件内容并返回文本。
 

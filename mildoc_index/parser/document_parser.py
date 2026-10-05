@@ -26,7 +26,7 @@ class DocumentParser(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def supports(self, data: bytes) -> bool:
+    def supports(self, content_type: bytes) -> bool:
         """
         判断解析器是否支持处理给定的文件类型。
 

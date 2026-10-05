@@ -6,3 +6,4 @@ __pycache__/
 *.pyc
 *.log
 mildoc_index/data/
+mildoc_milvus/milvus_local/volumes/
