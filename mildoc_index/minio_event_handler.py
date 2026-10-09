@@ -253,6 +253,10 @@ class MinioEventHandler:
         except Exception as e:
             logger.exception("处理文件失败")
             return False
+
+    """
+    全量更新
+    """    
     def handle_minio_all_object(self):
         """
         处理 MinIO 桶中的所有事件。
@@ -283,6 +287,9 @@ class MinioEventHandler:
 
         except Exception as e:
             logger.exception("全量更新失败：%s", e)
+    """
+    排查补漏
+    """
     def backfill_update(self) -> None:
         """
         检查 MinIO 中的所有文件，只补充 Milvus 中不存在的文件。
@@ -335,7 +342,11 @@ class MinioEventHandler:
             )
 
         except Exception as e:
-            logger.exception("排查补漏失败：%s", e)        
+            logger.exception("排查补漏失败：%s", e)
+
+    """
+    实时监听
+    """        
     def start_listening_events(self):
         """
         持续监听当前桶的事件
