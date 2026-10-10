@@ -40,3 +40,6 @@ if not all([MINIO_ENDPOINT,
     MINIO_SECRET_KEY,
     MINIO_BUCKET,]):
     raise ValueError("MinIO 配置不完整,请检查minio的相关配置")
+if __name__ == '__main__':
+    print(BASE_DIR)
+    print(PROJECT_ROOT)

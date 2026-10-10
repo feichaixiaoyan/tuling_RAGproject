@@ -7,6 +7,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from mildoc_admin.config.settings import ADMIN_HOST,ADMIN_PORT,BASE_DIR,PROJECT_ROOT,SESSION_SECRET_KEY
 from mildoc_admin.routes.auth_routes import router as auth_router
+from mildoc_admin.routes.file_routers import router as file_router
 
 """
     创建 FastAPI 应用
@@ -44,6 +45,7 @@ app.mount(
 
 #把登录相关路由挂载到 FastAPI 应用上
 app.include_router(auth_router)
+app.include_router(file_router)
 
 
 @app.get("/health")

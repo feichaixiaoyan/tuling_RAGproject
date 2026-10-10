@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件浏览 - Mildoc 管理后台</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">Mildoc 管理后台</h1>
+                <nav class="nav">
+                    <a href="/files" class="nav-link">文件浏览</a>
+                    <div class="user-info">
+                        <span>欢迎，{{ username }}</span>
+                    </div>
+                    <a href="/logout" class="nav-link logout">退出</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="file-browser">
+                <div class="file-browser-header">
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-item">
+                            <a href="/files" class="breadcrumb-link">根目录</a>
+                        </span>
+                        <span id="breadcrumb-path"></span>
+                    </div>
+
+                    <div class="browser-actions">
+                        <button id="create-dir-btn" class="create-dir-btn">创建目录</button>
+                        <button id="delete-dir-btn" class="delete-dir-btn" style="display: none;">删除目录</button>
+                        <button id="upload-btn" class="upload-btn">上传文件</button>
+                    </div>
+                </div>
+
+                <input type="file" id="file-input" multiple style="display: none;" accept="*/*">
+
+                <div class="file-list">
+                    <div class="file-list-header">
+                        <div class="file-item-name">名称</div>
+                        <div class="file-item-size">大小</div>
+                        <div class="file-item-modified">修改时间</div>
+                    </div>
+
+                    <div id="file-list-content" class="file-list-content">
+                        <div class="loading">加载中...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+    <script src="{{ url_for('static', path='js/file_browser.js') }}"></script>
+</body>
+</html>
